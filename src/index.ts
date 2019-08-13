@@ -1,5 +1,5 @@
-import { wordList } from "./words";
-import { generateIndexes } from "./lib/getIndexes";
+import { wordList } from './words';
+import { generateIndexes } from './lib/getIndexes';
 
 interface GenerateOptions {
   minLength?: number;
@@ -26,7 +26,7 @@ export function generate(exactly: number = 1, opt?: GenerateOptions) {
   }
 
   // No Matches
-  if (!pool.length) return exactly === 1 ? "" : [];
+  if (!pool.length) return exactly === 1 ? '' : [];
 
   // If we are choosing a crypto random index
   if (opt.crypto) {
@@ -40,7 +40,7 @@ export function generate(exactly: number = 1, opt?: GenerateOptions) {
     const temp: string[] = [];
     while (temp.length <= exactly - 1) {
       const rInt = Math.floor(
-        Math.random() * opt.maxLength! + 1 - opt.minLength!
+        Math.random() * opt.maxLength! + 1 - opt.minLength!,
       );
       temp.push(pool[rInt]);
       pool = temp;

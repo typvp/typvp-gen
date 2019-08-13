@@ -1,21 +1,21 @@
-import { generate } from "../index";
+import { generate } from '../src/index';
 
-describe("typvp Generate", () => {
-  it("Returns the expected length array (crypto)", () => {
+describe('typvp Generate', () => {
+  it('Returns the expected length array (crypto)', () => {
     const gen = generate(20, { crypto: true });
     expect(gen.length).toBe(20);
   });
 
-  it("Returns the expected length array", () => {
+  it('Returns the expected length array', () => {
     const gen = generate(20);
     expect(gen.length).toBe(20);
   });
 
-  it("Respects the length boundaries", () => {
+  it('Respects the length boundaries', () => {
     const gen = generate(20, {
       minLength: 3,
       maxLength: 6,
-      crypto: true
+      crypto: true,
     }) as string[];
     let withinBounds = true;
     console.log(gen);
@@ -33,7 +33,7 @@ describe("typvp Generate", () => {
     const gen = generate(20, {
       minLength: 20,
       maxLength: 30,
-      crypto: true
+      crypto: true,
     }) as string[];
     expect(gen.length).toBe(0);
   });
@@ -41,25 +41,25 @@ describe("typvp Generate", () => {
   it("Doesn't die with bad length boundaries(2)", () => {
     const gen = generate(1, {
       minLength: 20,
-      maxLength: 30
+      maxLength: 30,
     }) as string[];
-    expect(typeof gen).toBe("string");
+    expect(typeof gen).toBe('string');
   });
 
-  it("Will return a single word (crypto)", () => {
+  it('Will return a single word (crypto)', () => {
     const gen = generate(1, {
       minLength: 1,
       maxLength: 20,
-      crypto: true
+      crypto: true,
     }) as string[];
-    expect(typeof gen).toBe("string");
+    expect(typeof gen).toBe('string');
   });
 
-  it("Will return a single word", () => {
+  it('Will return a single word', () => {
     const gen = generate(1, {
       minLength: 1,
-      maxLength: 20
+      maxLength: 20,
     }) as string[];
-    expect(typeof gen).toBe("string");
+    expect(typeof gen).toBe('string');
   });
 });
