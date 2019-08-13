@@ -39,12 +39,10 @@ export function generate(exactly: number = 1, opt?: GenerateOptions) {
   } else {
     const temp: string[] = [];
     while (temp.length <= exactly - 1) {
-      const rInt = Math.floor(
-        Math.random() * opt.maxLength! + 1 - opt.minLength!,
-      );
+      const rInt = Math.floor(Math.random() * pool.length);
       temp.push(pool[rInt]);
-      pool = temp;
     }
+    pool = temp;
   }
   return exactly === 1 ? pool[0] : pool;
 }
