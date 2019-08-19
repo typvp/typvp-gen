@@ -12,7 +12,7 @@ interface GenerateOptions {
 
 export function generate(exactly: number = 1, opt?: GenerateOptions) {
   opt = { crypto: false, minLength: 1, maxLength: 14, ...opt };
-  let pool: string[] = [];
+  let pool: string[] | string = [];
 
   // Attempt to skip filtering
   if (opt.minLength === 1 && opt.maxLength === 14) {
@@ -44,5 +44,16 @@ export function generate(exactly: number = 1, opt?: GenerateOptions) {
     }
     pool = temp;
   }
+
+  if (__DEV__ && opt.join && exactly > 1) {
+    console.warn(
+      'Warning: [@typvp/gen] Using the join option when exactly = 1 will be ignored',
+    );
+  }
+
+  if (opt.join && exactly > 1) {
+    pool = pool.join(opt.join);
+  }
+
   return exactly === 1 ? pool[0] : pool;
 }

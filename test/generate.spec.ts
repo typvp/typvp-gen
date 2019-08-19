@@ -17,8 +17,8 @@ describe('typvp Generate', () => {
       maxLength: 6,
       crypto: true,
     }) as string[];
+
     let withinBounds = true;
-    console.log(gen);
     gen.forEach(word => {
       if (word.length <= 3 || word.length >= 6) {
         withinBounds = false;
@@ -61,5 +61,21 @@ describe('typvp Generate', () => {
       maxLength: 20,
     }) as string[];
     expect(typeof gen).toBe('string');
+  });
+
+  it('Will join the array', () => {
+    const gen = generate(5, {
+      join: '|',
+    });
+    expect(typeof gen).toBe('string');
+    expect(gen.includes('|')).toBeTruthy();
+  });
+
+  it('Will ignore join when exactly = 1', () => {
+    const gen = generate(1, {
+      join: '|',
+    });
+    expect(typeof gen).toBe('string');
+    expect(gen.includes('|')).toBeFalsy();
   });
 });
