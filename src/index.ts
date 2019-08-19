@@ -45,7 +45,7 @@ export function generate(exactly: number = 1, opt?: GenerateOptions) {
     pool = temp;
   }
 
-  if (__DEV__ && opt.join && exactly > 1) {
+  if (__DEV__ && opt.join && exactly === 1) {
     console.warn(
       'Warning: [@typvp/gen] Using the join option when exactly = 1 will be ignored',
     );
