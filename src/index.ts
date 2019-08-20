@@ -19,7 +19,7 @@ export function generate(exactly: number = 1, opt?: GenerateOptions) {
     pool = wordList;
   } else {
     pool = wordList.filter(word => {
-      if (word.length <= opt!.minLength! || word.length >= opt!.maxLength!) {
+      if (word.length < opt!.minLength! || word.length > opt!.maxLength!) {
         return false;
       } else return true;
     });

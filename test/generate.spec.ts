@@ -17,10 +17,9 @@ describe('typvp Generate', () => {
       maxLength: 6,
       crypto: true,
     }) as string[];
-
     let withinBounds = true;
     gen.forEach(word => {
-      if (word.length <= 3 || word.length >= 6) {
+      if (word.length < 3 || word.length > 6) {
         withinBounds = false;
       } else {
         return;
