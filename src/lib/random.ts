@@ -1,4 +1,4 @@
-import crypto from "crypto";
+import crypto from 'crypto';
 
 export class Random {
   /** Transform an integer to a floating point number. */
@@ -10,7 +10,7 @@ export class Random {
    *  drop in replacement for `Math.random()`
    */
   static value(): number {
-    return this.intToFloat(parseInt(crypto.randomBytes(8).toString("hex"), 16));
+    return this.intToFloat(parseInt(crypto.randomBytes(8).toString('hex'), 16));
   }
   /**
    * Generate a random number between `min` (inclusive) and `max` (exclusive).

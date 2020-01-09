@@ -1,4 +1,4 @@
-import { Random } from "../lib/random";
+import { Random } from '../lib/random';
 
 export const generateIndexes = (length: number, count: number): number[] => {
   const indexes = [];
